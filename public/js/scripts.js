@@ -1,19 +1,13 @@
-const cardList = [
-    {
-        title: "Kitten 2",
-        image: "images/kitten1.jpg",
-        link: "About Kitten 1",
-        desciption: "Demo desciption about kitten 1"
-    },
-    {
-        title: "Kitten 3",
-        image: "images/kitten2.jpg",
-        link: "About Kitten 2",
-        desciption: "Demo desciption about kitten 2"
-    }
-]
 const clickMe = () => {
     alert("Thanks for clicking me. Hope you have a nice day!")
+}
+
+const getProjects = () => {
+    $.get('/api/projects',(response) => {
+        if(response.statusCode==200){
+            addCards(response.data);
+        }
+    })
 }
 
 const addCards = (items) => {
@@ -30,12 +24,12 @@ const addCards = (items) => {
     });
 }
 
-
-
 $(document).ready(function(){
     $('.materialboxed').materialbox();
     $('#clickMeButton').click(()=>{
         clickMe();
     })
-    addCards(cardList);
+    getProjects();
+    $('.modal').modal();
+
   });
