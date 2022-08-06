@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/styles.css">
 
 </head>
+
 <body>
   <nav>
       <div class="nav-wrapper navbar-size">
@@ -42,7 +43,7 @@
           <img class="materialboxed materialboxed-image" src="images/livedemo.jpg">
         </div>
         <div class="col s12 center-align">
-          <a class="waves-effect waves-light btn click-me-button" id="clickMeButton"><i class="material-icons left">auto_fix_high</i>Click Me</a>
+          <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1"><i class="material-icons left">auto_fix_high</i>Click Me</a>
         </div>
       </div>
       <div class="row" id="card-section">
@@ -63,11 +64,45 @@
         </div>
       </div>
     </div>
-  </main>
+      <!-- Modal Structure continues on next slide-->
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal modal-fixed-footer">
+        <div class="row modal-content">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Placeholder" id="title" type="text" class="validate">
+                <label for="title">Title</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="image" type="text" class="validate">
+                <label for="image">Image</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="link" type="text" class="validate">
+                <label for="link">Link</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="description" type="text" class="validate">
+                <label for="description">Description</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 center-align">
+                <a class="waves-effect waves-light btn" id="formSubmit">submit</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="js/scripts.js"></script>
 </body>
-
 </html>

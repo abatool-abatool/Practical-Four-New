@@ -1,5 +1,29 @@
+const submitForm = () => {
+    let formData = {};
+    formData.title = $('#title').val();
+    formData.image = $('#image').val();
+    formData.link = $('#link').val();
+    formData.description = $('#description').val();
+
+    console.log("Form Data Submitted: ", formData);
+    addProjectToApp(formData);
+}
+
 const clickMe = () => {
     alert("Thanks for clicking me. Hope you have a nice day!")
+}
+
+//ajax function...
+const addProjectToApp = (project) => {
+    $.ajax({
+        url: '/api/projects',
+        data: project,
+        type: 'POST',
+        success: (result) => {
+            alert(result.message);
+            location.reload(); // it automatically reloads the page 
+        }
+    })
 }
 
 const getProjects = () => {
@@ -26,8 +50,8 @@ const addCards = (items) => {
 
 $(document).ready(function(){
     $('.materialboxed').materialbox();
-    $('#clickMeButton').click(()=>{
-        clickMe();
+    $('#formSubmit').click(()=>{
+        submitForm();
     })
     getProjects();
     $('.modal').modal();
